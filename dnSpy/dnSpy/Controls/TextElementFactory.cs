@@ -261,6 +261,7 @@ namespace dnSpy.Controls {
 
 				return new TextCharacters(tokenText.Length == 0 ? " " : tokenText, textProps);
 			}
+			public override string ToString() => text;
 		}
 	}
 }

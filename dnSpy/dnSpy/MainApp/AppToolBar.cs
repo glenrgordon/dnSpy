@@ -20,6 +20,7 @@
 using System;
 using System.ComponentModel.Composition;
 using System.Windows.Controls;
+using System.Windows.Input;
 using dnSpy.Contracts.Controls;
 using dnSpy.Contracts.ToolBars;
 using dnSpy.Controls;
@@ -36,6 +37,8 @@ namespace dnSpy.MainApp {
 		public AppToolBar(IToolBarService toolBarService) {
 			this.toolBarService = toolBarService;
 			toolBar = new ToolBar();
+			toolBar.IsTabStop = false;
+			toolBar.SetCurrentValue(KeyboardNavigation.TabNavigationProperty, KeyboardNavigationMode.None);
 		}
 
 		internal void Initialize(MetroWindow window) =>

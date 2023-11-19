@@ -209,6 +209,13 @@ namespace dnSpy.Contracts.Controls {
 			Debug2.Assert(line is not null);
 			line.Draw(drawingContext, new Point(0, 0), InvertAxes.None);
 		}
+		public override string ToString() {
+			// ToString on the DataSource class is where the  UIA name comes from when not explicitly set  with AutomationProperties.Name.
+			TextSource source = src.Source;
+			if (source != null)
+				return source.ToString();
+			return base.ToString();
+		}
 	}
 
 	static class TextFormatterFactory {
